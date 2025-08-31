@@ -13,6 +13,12 @@ Insert the element: The key is then inserted into the empty position.
 Repeat: The process repeats for all remaining elements in the unsorted subarray until the entire array is sorted.
 
 
+At the end of the loop, the value of j is -1. The loop stops because arr[j] was no longer greater than the key (or because j became less than 0). This means that the correct position for the key is right after the element at j.
+Think about what j represents at this point. It's the index of the last element we checked that was not greater than the key (or the index before the start of the array). Therefore, the space we've created for the key is at j + 1.
+
+
+
+
 Inserting an Element into a Sorted Array/List: Given an already sorted array/list and a new element, insert the new element into its correct position while maintaining the sorted order. This is essentially performing one "pass" of the inner loop of insertion sort.
 Sorting a Partially Sorted Array: Given an array that is mostly sorted with only a few elements out of place, how would insertion sort perform? This highlights its adaptive nature.
 Hybrid Sorting Algorithms (e.g., Tim Sort): Explain how insertion sort is used as a component in more advanced, hybrid sorting algorithms like Tim Sort (used in Python's list.sort() and Java's Arrays.sort()). These algorithms often use insertion sort for sorting small subarrays because of its low constant factors and adaptivity.
@@ -20,11 +26,8 @@ Maintaining a Sorted List/Stream: If you need to keep a list of elements sorted 
 Finding the Smallest/Largest k Elements (for small k): While heaps are generally more efficient for larger k, for very small k, you could maintain a sorted list of the k smallest/largest elements by inserting new elements into this list using insertion sort's logic and discarding the elements that fall outside the top k.
 Sorting Objects with Custom Comparison: Sort an array of custom objects based on a specific attribute (e.g., sorting Student objects by grade or name). You'd use the insertion sort structure but replace the simple numerical comparison with a custom comparator function.
 
-we are deviding array between unsorted array and sorted array 
-instially arr[0] known as sorted array  and from 1 to n known as unsorted array 
-so everytime we are checking element on unsorted part and place to correct location 
-we are checking whether we still have sorted part and we element not at correct location 
-shift element with right and decrease so we can go still sorted part we will go till begaining of array 
+
+
 
 
 """
@@ -58,6 +61,27 @@ def insertion_sort(arr):
     return arr
 
 
+
+
+"""
+5 , 2 ,3 
+
+key = 2
+j = 1 index
+
+comapre j>=0 = True
+compare arr[j] > key = True
+
+arr[j]  = 5 BEFORE SORTING 
+KEY = 2
+
+arr[j +1] = arr[j]  copy value to that location 
+
+then add 
+
+arr[j + 1] = key fixed this 
+
+"""
 
 
 # def insert_sorted(arr, num):

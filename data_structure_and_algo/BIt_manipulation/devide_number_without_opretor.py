@@ -27,3 +27,19 @@ we check if multiple of divisor < then dividand or not
 if its lessthan then its part of anwser 
 add that to result and then subtrect from dividend 
 """
+
+"""
+Overflow Technique we can handle 
+check if number is over flow means 2 ** 32 
+then subtract it from actual result 
+
+        if result >= (1 << 31):
+            result -= (1 << 32)
+
+        
+        return result
+
+Valid signed 32-bit range: -2^31 to 2^31 - 1 → [-2147483648, 2147483647].
+If your result ends up ≥ 2^31, that means it’s actually a negative number in 32-bit signed math.
+Subtracting 2^32 (1 << 32) brings it back into that signed range.
+"""

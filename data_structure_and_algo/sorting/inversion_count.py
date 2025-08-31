@@ -23,8 +23,37 @@ Computational biology (measuring sequence similarity).
 
 it means all element on left are greter than right 
 
+Given an array of size n Just count The number of i , j Index such that 
+I < J and a[i] > a[j]
+
+Identify No of inversion Pairs 
+
+Count The number of pairs where larger one on left and smaller one on right side 
+[ 3 , 1 , 2]
 
 
+identify all the pair 
+
+Why sorting approch will not work 
+Index change hence we cant get correct place
+More element we have more Unsorted they are
+
+
+if we have 2 sorted array counting inversion becomes easy 
+
+
+we will have 2 sorted array A and B 
+
+WE will compare first element Both 
+
+
+If both array are sorted 
+
+we starting by comparing the first element 
+
+check first element in both array 
+so if a[i] < b[i] then all element including b[i] to n will be larger then a[i] so we can directly add a count 
+so merging 2 sorted array will be correct 
 
 """
 
@@ -58,7 +87,7 @@ def merge_2_sorted_subarray(arr, s, m, e):
         else:
             result.append(arr2[j])
             j += 1
-            inversion += len(arr1) - i  # All remaining elements in arr1 are greater => inversions
+            inversion += len(arr1) - i  # All remaining elements in arr1 are greater => inversions we have added here as it is part of conditipon arr1[i] > arr2[j]
 
     while i < len(arr1):
         result.append(arr1[i])

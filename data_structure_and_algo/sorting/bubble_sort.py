@@ -70,7 +70,8 @@ The k-th smallest will be at index:
 The Time complexity is (N * K) 
 
 
-
+Your if not swapped: break will trigger when the first swap happens, prematurely exiting the outer loop and leaving the array unsorted.
+In many cases, the algorithm won’t fully sort the list.
 
 """
 
@@ -142,7 +143,11 @@ This version: Compares only until where swaps occurred
 This can save many unnecessary comparisons.
 
 
-
+In bubble sort, each pass pushes the largest remaining element toward the right.
+But sometimes the array gets sorted before the full pass finishes.
+The position of the last swap tells you:
+Everything to the right of it is already in the correct order.
+Next time, you don’t need to check beyond that index.
 
 """
 

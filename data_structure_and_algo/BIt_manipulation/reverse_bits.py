@@ -1,11 +1,10 @@
 class Solution:
     def reverseBits(self, n: int) -> int:
-        res = 0
-        for i in range(32): # as we are working with 32 bits integer
-            bit = (n >> i) & 1 # check if i bit is 0 or not 
-             # place bit at actual location and accumelate result 
-        return res
-    
+        result = 0 
+        for i in range(32):
+            bit = (n >> i) & 1
+            result |= bit << ( 31 - i)
+        return result    
 
 # (bit << (31 - i))
 

@@ -50,3 +50,16 @@ use same to genrate array
 
 
 """
+
+
+"""
+
+Given array a of size n all element are in range between 1 to n sort arr
+
+Sorting array : n**2 if we use bubble sort slection or quick sort
+can we store freq of all elements from 1 to n  
+
+range is already given so we can directly use that 
+
+
+"""

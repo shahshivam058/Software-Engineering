@@ -13,10 +13,13 @@ sorting algoritham efficient than bubble sort
 - You find the largest element and move it to the end of the unsorted portion
 
 Core Idea and Analogy
-Imagine you have a deck of unsorted playing cards face up on a table.
-Find the smallest: You scan through all the cards and pick out the card with the smallest value.
-Place it first: You place this smallest card at the very beginning of a new, sorted pile.
-Repeat: You then look at the remaining unsorted cards, find the smallest among them, and place it next in your sorted pile. You continue this process until all cards are moved to the sorted pile.
+How It Works
+Selection sort divides the input list into two sublists: a sorted sublist and an unsorted sublist. Initially, the sorted sublist is empty, and the unsorted sublist contains all the elements. The algorithm proceeds as follows:
+Find the Minimum: Iterate through the unsorted sublist to find the element with the smallest value.
+Swap: Swap the minimum element found with the first element of the unsorted sublist. This moves the smallest element to its correct position in the sorted part of the array.
+Shrink the Unsorted Sublist: The sorted sublist now grows by one element, and the unsorted sublist shrinks.
+Repeat: Repeat the process with the remaining unsorted sublist until the entire list is sorted.
+
 
 
 
@@ -35,22 +38,27 @@ def selection_sort_min_to_front(arr):
     n = len(arr)
     for i in range(n) :
         min_index = i 
-        for j in range(i+1 , n) :
+        for j in range(i+1 , n) : # we will identify the minimum value till i and place it 
             if arr[j] < arr[min_index]: # by change to > we can sort in decreasing order 
                 min_index = j 
         
         arr[i] , arr[min_index] = arr[min_index] , arr[i]
 
-        # if min_index != i: we can avove un nessecary swaps where element is already at correct location 
-        #     arr[i], arr[min_index] = arr[min_index], arr[i]
+#         # if min_index != i: we can avove un nessecary swaps where element is already at correct location 
+#         #     arr[i], arr[min_index] = arr[min_index], arr[i]
 
 
     return arr
 
 
+
+
+
 arr = [5,3,4,2,6]
 
 print(selection_sort_min_to_front(arr))
+
+
 
 """
 🕒 Time Complexity

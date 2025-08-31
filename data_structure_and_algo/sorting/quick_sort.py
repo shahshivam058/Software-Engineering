@@ -155,3 +155,41 @@ def hoare_partition(arr, low, high):
 arr = [8, 4, 7, 3, 10, 2]
 quick_sort(arr, 0, len(arr) - 1)
 print("Sorted array:", arr)
+
+
+def quicksort(nums):
+    n = len(nums) 
+    _quicksorthelper(nums, 0, n - 1)
+    return nums
+
+def _quicksorthelper(nums, low, high):
+    if low < high:
+        partition_index = partition(nums, low, high)
+        _quicksorthelper(nums, low, partition_index - 1)
+        _quicksorthelper(nums, partition_index + 1, high)
+
+def partition(nums, low, high):
+    pivot = nums[low]  # Choose first element as pivot
+    left = low + 1
+    right = high
+
+    while left <= right:
+        # Find element on left that should be on right
+        while left <= right and nums[left] <= pivot:
+            left += 1
+        # Find element on right that should be on left
+        while left <= right and nums[right] >= pivot:
+            right -= 1
+        
+        if left < right:
+            # Swap elements that are out of place
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+    # Swap pivot into its correct position
+    nums[low], nums[right] = nums[right], nums[low]
+    return right
+
+nums = [4, 5, 2, 8, 1]
+print(quicksort(nums))

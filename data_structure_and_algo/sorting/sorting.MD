@@ -13,7 +13,6 @@ Key Concepts and Terminology
 Before we explore specific algorithms, let's understand some important terms:
 
 In-place vs. Out-of-place:
-
 In-place (or In-situ): An algorithm that sorts the elements directly within the original data structure, requiring only a constant amount of extra auxiliary space (O(1)) beyond the input itself. Examples: Bubble Sort, Insertion Sort, Selection Sort, Heap Sort.
 
 Out-of-place: An algorithm that requires additional memory space proportional to the input size (O(n) or O(logn)) to perform the sort. It typically creates a temporary copy of the data. Examples: Merge Sort.
