@@ -6,7 +6,7 @@ Contiguity: This is the most important characteristic. The elements of a subarra
 
 Size: A subarray can have any size from 1 (a single element) up to the size of the original array itself. A subarray that contains all the elements of the original array is considered a valid subarray.
 
-Order: The relative order of the elements in a subarray is the same as in the original array. You can't change the sequence. For example, if you have [1, 2, 3], [3, 2] is not a subarray, even though the elements are from the original array, because their order is reversed.
+
 
 Subarray vs. Subsequence vs. Subset
 It's common to confuse a subarray with a subsequence or a subset. Here's a breakdown of the differences:

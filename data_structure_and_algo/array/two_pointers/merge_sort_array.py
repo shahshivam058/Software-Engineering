@@ -72,3 +72,32 @@ class Solution:
             nums1[last] = nums2[n - 1]
             n -= 1
             last -= 1
+    
+
+class Solution:
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        """
+        we are just solving one char at a time 
+        identify the array of whole string 
+        use kind of 2 pointer 1 placed at end of nums1 and another placed at end of nums2 
+
+        solve it in backward from last 
+
+        compare last in nums1 and last in nums2 
+        larger one placed at last one in nums1 
+        """
+        last = m + n - 1
+        i, j = m - 1, n - 1
+
+        while j >= 0:
+            if i >= 0 and nums1[i] > nums2[j]:
+                nums1[last] = nums1[i]
+                i -= 1
+            else:
+                nums1[last] = nums2[j]
+                j -= 1
+
+            last -= 1

@@ -374,6 +374,132 @@ Method OverRiding :
 - each class have their own method but name will be same in all class but impmementation is different 
 - 2 class linked through inheritence but both have same method - but different implementation which method to run defined at 
 - based on the object method will be called 
--
+- its also called run time polymorphisam
+- Method overriding is when a child class provides its own version of a method that is already in its parent class. This lets the child class change how a specific task is done without changing the method's name or its input and output. It's a fundamental concept in object-oriented programming (OOP).
+- Imagine you have a family. The parent (the parent class) has a rule: "Clean your room" (the method).
+- The parent's default way to "clean the room" might be to just put clothes in the closet.
+- Now, one of the children (the child class) is very neat and has their own, better way of cleaning. They decide to override the parent's rule. Their version of "Clean your room" means they will not only put clothes in the closet but also make the bed and vacuum the floor.
+- The parent's rule still exists, but when you tell the child to "clean your room," they use their own, more specific method instead of the parent's default one.
 
+
+
+
+
+Interface : 
+- Class Consist of method attributes and constructor 
+- class is blue print of entity 
+- constructor used for entity creation 
+- attributes and methods are part of bhaviour 
+- interface doesnt represent real entity . excet not real entity it defines bhaviour or blue print of bhaviour 
+- interface categorize in terms of bhaviour 
+- any living being eat talk or breath is human 
+- using above you can categorize human from other living being 
+- we can write an interface animal eact walk run : animal
+- interface only has method defination not implementation 
+- now every animal should have this bhaviour 
+Core Concepts
+- Imagine an interface is like a contract or a blueprint. It doesn't actually build anything itself. Instead, it just lays out a set of rules for a class to follow.
+
+
+- The Contract: An interface says, "If you want to be a 'something,' you must have these specific abilities." For example, an IDrivable interface (the "I" often stands for interface) might have rules like:
+
+    startEngine()
+    accelerate()
+    brake()
+
+- The Class: Now, let's say you have a Car class and a Bus class. Both of them can be "drivable." To prove this, they can implement the IDrivable interface. This means they are both promising to follow the rules of the contract by providing their own unique way to startEngine(), accelerate(), and brake().
+
+- The Code: You could then write code that works with anything that is IDrivable, without caring if it's a Car or a Bus. This is incredibly powerful because it makes your code flexible.
+
+- Abstraction: Interfaces provide a high level of abstraction. They hide the internal implementation details of an object, exposing only the necessary methods for interaction. This allows for a clean separation of concerns.
+
+- Multiple Inheritance: In languages that don't support multiple inheritance of classes (like Java and C#), interfaces are a way to achieve a similar result. A class can implement multiple interfaces, thereby inheriting multiple "contracts" of behavior.
+
+
+Why Use Interfaces?
+- Flexibility: It lets you swap out one object for another without changing the rest of your code. For instance, you could upgrade from an old Car class to a new ElectricCar class, as long as the new class also implements IDrivable.
+
+- Organization: They help organize your code by defining clear roles and responsibilities. It's easy to see what a class is supposed to do by looking at the interfaces it implements.
+
+- Teamwork: In a team project, one programmer can design the interface (the contract), while another programmer works on the actual implementation (the class). They can work independently, as long as they agree on the rules of the interface.
+
+- Loose Coupling : Interfaces help to decouple your code, meaning one part of your program doesn't need to know the specific details of another. Your code can interact with an object through its interface, which is a common set of methods, rather than with its specific, concrete class. This makes your system more adaptable to change.
+
+- Testability : Interfaces make unit testing much easier. When a class depends on another object, you can replace the real object with a mock or fake object that also implements the same interface. This mock object can be programmed to return specific data or track how it was used, allowing you to test your code in isolation without relying on external services like a database or a network call.
+
+
+- Polymorphism : Interfaces are the foundation for polymorphism, which means "many forms." A variable can be declared as an interface type, and at runtime, it can hold an object of any class that implements that interface. This allows you to write more generic and reusable code.
+
+- Simulating Multiple Inheritance: Many programming languages like Java and C# don't allow a class to inherit from multiple parent classes (multiple inheritance). This is to avoid a complex problem known as the "diamond problem." However, a class can implement multiple interfaces, which lets it "inherit" multiple sets of behaviors. This provides a clean way to add capabilities to a class without the complexities of multiple inheritance.
+
+
+
+The Role of the Interface: The UPI Standard
+The National Payments Corporation of India (NPCI) created the Unified Payments Interface (UPI) as the core interface. Think of UPI as a formal, nationwide contract. This contract, or set of technical specifications, dictates exactly how a payment application (like PhonePe, Google Pay, or Paytm) and a bank's system (like Yes Bank, ICICI Bank, or SBI) should communicate to process a payment.
+
+This interface specifies things like:
+
+How a user's Virtual Payment Address (VPA) is created (user@ybl).
+
+The format of a payment request.
+
+The data required for a transaction (amount, unique transaction ID).
+
+The expected response from the bank (success, failure, pending).
+
+The security protocols for data encryption and authentication.
+
+This standardized interface is the foundation of the entire UPI ecosystem.
+
+Yes Bank: The Implementation
+Yes Bank is a Payment Service Provider (PSP) bank. In the UPI ecosystem, this means they have implemented the UPI interface. They built a robust, secure, and scalable system on their end that can handle millions of API calls every day, all following the rules of the UPI contract. When a request comes in to user@ybl (the "ybl" stands for Yes Bank), their system knows exactly what to do:
+
+Authenticate the user.
+
+Verify the UPI PIN.
+
+Debit the sender's bank account.
+
+Credit the recipient's bank account.
+
+Send a real-time confirmation back to the requesting app.
+
+PhonePe: The User of the Interface
+PhonePe is a Third-Party Application Provider (TPAP). They built their consumer-facing application, with its user-friendly UI and features, on top of this UPI interface. PhonePe's developers do not have to know how Yes Bank's internal systems work, how their databases are structured, or what specific programming language they used. All PhonePe cares about is that Yes Bank provides an API that follows the UPI contract.
+
+When a PhonePe user sends money, the PhonePe app simply makes an API call to Yes Bank's UPI service, formatted exactly as specified by the UPI interface. The app says, "Hey Yes Bank, can you please process a payment for this user with this amount?" and Yes Bank's system responds with a simple "yes" or "no" (along with a transaction ID).
+
+The "Switching" Moment: A Perfect Example of Interface Value
+The genius of this interface-based design was powerfully demonstrated in March 2020. Due to a financial crisis at Yes Bank, the Reserve Bank of India (RBI) placed a moratorium on the bank, which temporarily halted many of its services.
+
+Because PhonePe was, at the time, primarily partnered with only Yes Bank to provide UPI services (all their users had the @ybl VPA), millions of transactions for PhonePe users immediately failed. The user@ybl virtual addresses couldn't connect to a working bank system.
+
+Here is where the interface truly saved the day:
+
+No Code Rewrite: PhonePe's core application code for handling payments did not have to be rewritten. The IPaymentProvider contract (the UPI interface) remained the same.
+
+Plug-and-Play Migration: The NPCI and PhonePe worked quickly to activate new partnerships with other PSP banks like ICICI Bank and Axis Bank. This was possible because these new banks also implemented the exact same UPI interface.
+
+Seamless Transition: PhonePe could then easily transition its users to the new bank handles (e.g., @ibl for ICICI Bank or @axl for Axis Bank) by simply changing the _paymentProvider object in their system from the YesBankProvider implementation to the ICICIBankProvider implementation.
+
+Abstrect Class : 
+
+- An abstract class is a special kind of class that can't be used to create objects directly. Instead, it acts as a blueprint or a semi-finished template for other classes. It can have both regular methods with code inside them and special abstract methods that have no code at all. Any class that inherits from an abstract class must provide its own code for all the abstract methods.
+
+- The model kit for a "Vehicle" might come with a frame and four wheels already attached (these are the regular methods with code).
+
+- But the kit also has instructions that say "add an engine here" and "attach the exterior body here" (these are the abstract methods). The instructions tell you what to do, but not how to do it. You have to buy your own engine and design your own body.
+
+- You can't just take the "Vehicle" kit and drive it. You have to first choose what kind of vehicle you want to build, like a "Car" or a "Truck," and then add the unique parts for that vehicle. A "Car" class would add a car engine and car body, while a "Truck" class would add a truck engine and truck bed.
+
+- In low-level design, an abstract class is used to provide a common base for a group of related classes. It allows you to share code and enforce a specific structure, which leads to more organized and maintainable systems.
+
+- Shared Logic and Enforced Structure: You'd create an abstract class called Employee. All employees share some common characteristics, so you can put that shared code right into the Employee class. For example, every employee has a name and an ID, so you can have regular methods to set and get those values.
+However, the way each employee gets paid is different. A full-time employee gets a salary, while a contractor gets paid by the hour. To handle this, you declare an abstract method called calculatePay(). You don't write any code in this method in the Employee class; you just declare it.
+
+- Concrete Implementations: Now, you create specific classes that inherit from Employee. Because they inherit from an abstract class, they are required to provide a concrete implementation for calculatePay().
+
+The FullTimeEmployee class would implement calculatePay() to return a fixed monthly salary.
+
+The Contractor class would implement calculatePay() to multiply their hourly rate by the number of hours worked.
 

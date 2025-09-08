@@ -9,13 +9,15 @@ Innermost Loop: This loop iterates from the starting point (i) to the ending poi
 This method is simple to understand but can be inefficient for very large arrays. The time complexity of this approach is O(n ** 3)
 
 function printSubarrays(array):
-    n = length of array
-    for i from 0 to n-1:
-        for j from i to n-1:
-            // The subarray is from index i to j
-            for k from i to j:
-                print array[k]
-            print a newline
+a = [ 1 , 2 , 3 , 4 , 5]
+
+n = len(a)
+for i in range(n) :
+    for j in range(i , n):
+        result = []
+        for k in range(i , j + 1) :
+            result.append(a[k])
+        print(result)
 
 """
 

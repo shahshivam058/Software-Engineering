@@ -137,5 +137,20 @@ Finding the Starting Node of a Cycle: After detecting a cycle, you can move one 
 
 
 
+In 2 , 3 SUM , 4 Sum 
 
 
+in this concept is always same just use 2 pointer approch both at different directions 
+
+in case of 3 sum 
+
+we can just add a for loop keep first element fixed  and on remaing array apply 2 point approch 
+
+4 sum  here part of array we can do with 2 pointer approch sum and remaining 2 for loop 
+
+we have to check for duplicates before going furthers 
+
+we can run both loop till n 
+
+
+when we found the elements just check duplicate to avoid in future 

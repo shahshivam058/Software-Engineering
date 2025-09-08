@@ -4,11 +4,9 @@ Rotation of array really simple
 
 Brute force approch just do use nested loop 
 
-for i in range(n) :
-    temp = arr[-1]
-    for j in range(1 , len(nums) - 2) :
-        arr[j] , arr[j + 1 ] = arr[j + 1] = arr[j]
+in brute force approch for left and right rotation we are doing 
 
+a[i] = a[i+1] = In case of left rotation we are doing this one as current element 
 
 Array rotation is a fundamental operation that involves shifting elements of an array by a specified number of positions. This operation has wide applications in computer science, from simple data manipulation to complex algorithms in image processing and cryptography.
 T
@@ -161,7 +159,7 @@ def reversal_part_of_array(arr , start, end) :
 def array_rotation(arr , k) :
     n = len(arr) - 1
     k = k % n
-
+    # we are doing till k - 1 as array start with index 0 
     arr = reversal_part_of_array(arr , 0 , n)
     arr = reversal_part_of_array(arr , 0 , k-1)
     arr = reversal_part_of_array(arr , k, n )
@@ -170,6 +168,7 @@ def array_rotation(arr , k) :
 def left_rotate_reversal(arr, k):
     n = len(arr)
     k = k % n
+
 
     reversal_part_of_array(arr, 0, k-1) # we rever the first k parts which will be go to 
     reversal_part_of_array(arr, k, n-1) # we rever the remining part in array 
@@ -197,6 +196,7 @@ def right_rotate_brute_force(arr, d):
         # Shift all elements to the right by one position
         for i in range(n - 1, 0, -1):
             arr[i] = arr[i - 1]
+            # as we are copying element before to current element 
 
         # Place the stored last element at the beginning
         arr[0] = temp

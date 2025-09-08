@@ -105,3 +105,50 @@ Permutation in a String: Check if a string contains a permutation of a pattern s
 
 Longest Substring with Same Letters After Replacement: Find the longest substring with the same letters after replacing up to k letters. The window expands, and if the number of replacements needed exceeds k, it contracts.
 
+How Sliding Window Works with Strings
+Basic Idea: The technique involves moving the right pointer to expand the window until it violates a condition, then moving the left pointer to shrink the window until the condition is satisfied again. Alternatively, for fixed-size windows, the window slides one character at a time.
+
+Data Structures: A hash map (or dictionary) is commonly used to track the frequency of characters within the current window, which helps in checking conditions quickly.
+
+Types:
+
+Variable-Size Window: Used for problems like finding the longest or shortest substring that meets a condition (e.g., longest substring without repeating characters).
+
+Fixed-Size Window: Used for problems like finding all anagrams of a string, where the window size is fixed to the length of the pattern.
+
+
+
+Key Concepts for Dynamic Sliding Window
+In dynamic sliding window problems, the window size changes based on certain conditions. The goal is to find a substring that meets specific criteria (e.g., longest substring without repeats, smallest window containing all characters of another string). The process involves:
+
+Expanding the window by moving the right pointer to include new elements.
+
+Shrinking the window by moving the left pointer when the condition is violated, until the condition is satisfied again.
+
+Tracking window state using a data structure (e.g., hash map, set) to efficiently check conditions.
+
+Updating the result (e.g., max length, min length) during the process.
+
+Common Mistakes During Shrinking
+Incorrectly updating the data structure: When shrinking, you must remove elements from the left and update counts or sets accordingly. Forgetting to do this can lead to incorrect state checks.
+
+Shrinking too much or too little: The shrinking loop should continue until the condition is just satisfied again. Stopping too early or too late can miss optimal windows.
+
+Misjudging the condition: The condition for shrinking must be clearly defined. For example, in "Minimum Window Substring", you shrink only when the window has all required characters, but in "Longest Substring Without Repeating Characters", you shrink when a duplicate is found.
+
+
+Step-by-Step Guide to Shrinking
+To avoid messing up, follow these steps:
+
+Define the condition: Clearly understand what condition must be true for the window to be valid. Also, know what violates it.
+
+Initialize pointers and data structures: Set left = 0, and use a dictionary or set to track characters in the window.
+
+Expand the window: Move right one step at a time, updating the data structure.
+
+Check for violation: After each expansion, check if the condition is violated. If so, proceed to shrink.
+
+Shrink the window: While the condition is violated (or until it is no longer satisfied), move left to the right, updating the data structure by removing elements. Ensure you update any related variables (e.g., counts, flags).
+
+
+

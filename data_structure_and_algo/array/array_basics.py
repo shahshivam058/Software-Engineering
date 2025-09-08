@@ -126,19 +126,7 @@ A dynamic array typically maintains three pieces of information:
     A pointer to the underlying static array: This points to the start of the memory block where the elements are actually stored.
     Size: The number of elements currently in the array.
     Capacity: The total number of elements the underlying static array can hold.
-
-When you add an element to a dynamic array, the following steps occur:
-
-The array checks if the current size is equal to the capacity.
-If there is space (size < capacity), the new element is simply added to the next available position in the underlying static array. This is a very fast O(1) operation.
-If there is no space (size == capacity), the dynamic array performs a more complex operation:
-It allocates a new, larger static array, typically twice the size of the old one. .
-It copies all the elements from the old array to the new, larger array. This is an O(n) operation, where n is the number of elements.
-The pointer is updated to point to the new array, and the old array's memory is deallocated to prevent memory leaks.
-Finally, the new element is added to the new array.
-
-This resizing strategy, known as doubling, is what gives dynamic arrays their excellent performance. While a single resize is slow, it happens so infrequently that the average performance of adding an element is still very fast.
-
+    
 
 
 1. Access Operations

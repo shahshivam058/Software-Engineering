@@ -26,7 +26,6 @@ Explanation: 4 boats (3), (3), (4), (5)
 
 The Two-Pointer Approach (Opposite Direction)
 Sort the People: First, sort the array of people's weights in non-decreasing (ascending) order. This step is crucial because it allows us to easily identify the lightest and heaviest remaining people. ⚖️
-
 Initialize Pointers: Place one pointer (left) at the beginning of the sorted array (pointing to the lightest person) and another pointer (right) at the end (pointing to the heaviest person).
 
 Greedy Strategy: Iterate while left is less than or equal to right. In each step, we use one boat. We always place the heaviest person (people[right]) in a boat. This is the greedy part—we're trying to get the most difficult person to accommodate out of the way first.

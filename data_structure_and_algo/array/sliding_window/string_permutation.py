@@ -101,3 +101,46 @@ class Solution:
         
         # If the loop completes without a match, no permutation was found.
         return False
+
+
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        s1_map = {}
+        s2_map = {}
+        n1 = len(s1)
+        n2 = len(s2)
+        
+        if n1 > n2:
+            return False
+        
+        for char in s1:
+            s1_map[char] = s1_map.get(char, 0) + 1
+        
+        left = 0
+        matches = 0
+        
+        for right in range(n2):
+            char_right = s2[right]
+            if char_right in s1_map:
+                s2_map[char_right] = s2_map.get(char_right, 0) + 1
+                if s2_map[char_right] == s1_map[char_right]:
+                    matches += 1
+            else:
+                # If the character is not in s1, we skip it, but we don't clear the entire map.
+                # Instead, we continue without adding to s2_map.
+                pass
+            
+            # If the window size is larger than n1, we need to remove the left character.
+            if right - left + 1 > n1:
+                char_left = s2[left]
+                if char_left in s1_map:
+                    if s2_map[char_left] == s1_map[char_left]:
+                        matches -= 1
+                    s2_map[char_left] -= 1
+                left += 1
+            
+            if matches == len(s1_map):
+                return True
+        
+        return False

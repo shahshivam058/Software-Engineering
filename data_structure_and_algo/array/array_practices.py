@@ -83,11 +83,14 @@ def secound_smallest_in_array(arr) :
     smallest = secound_smallest = math.inf
 
     """
-    we are looping over all elements in array 
-    we have to identify both largest and secound largest 
-    we Looping over all elements in array the main aim is to check largest and secound largest 
-    so we will check if current element is greter then largest then we will promote the largest element to secound largest and new element will be largest 
-    also we are checking if current element is not largest and its greter than secound largest then we are promoting that one to secound largest 
+    Main Intuition and Logic
+    Imagine you are looking at a series of numbers one by one. You need a way to remember the biggest number you've seen so far and also the second-biggest number. This can be done with two variables.
+    Initialization: Start by initializing two variables: largest and secondLargest. A common practice is to set them to the smallest possible value (e.g., negative infinity or INT_MIN) to ensure that the first few elements of the array will correctly update them. Alternatively, you can initialize them with the first and second elements of the array, but this requires handling edge cases (like an array with fewer than two elements) separately.
+    Iteration and Comparison: Iterate through each element of the array. For each element, you perform a series of checks:
+    Check 1: Is the current element the new largest?
+    If the current element is greater than largest, it means you've found a new champion. The old largest element now becomes the secondLargest, and the current element takes the place of largest.
+    Check 2: Is the current element the new second largest?
+    If the current element is not the new largest (i.e., it's not greater than the current largest), but it's still greater than secondLargest and it's not a duplicate of largest, you've found a new secondLargest. Update secondLargest to the current element.
     """
 
 
@@ -103,6 +106,16 @@ def secound_smallest_in_array(arr) :
     return smallest , secound_smallest
 
 def third_largest_in_array(arr) :
+    """
+    Initialization: Declare three variables, let's call them first, second, and third. Initialize all three to a very small number, such as negative infinity, to ensure that any number in the array will be greater than them.
+    Single Pass: Iterate through each element in the array. For each element, compare it with the three variables in a specific order:
+    If the current element is greater than first: This means you've found a new largest element. You must "shift" the current largest values down. The old first becomes the new second, the old second becomes the new third, and the current element becomes the new first.
+    Else if the current element is greater than second (but not first): The current element is the new second-largest. The old second becomes the new third, and the current element takes the place of second.
+    Else if the current element is greater than third (but not first or second): The current element is the new third-largest. The third variable is updated to the current element.
+    Handling Duplicates: The above logic correctly handles distinct numbers. If the problem requires finding the third largest distinct number (which is a common variation), you need to add an extra check to skip a number if it is equal to first, second, or third.
+    Final Result: After the loop finishes, the value stored in the third variable will be the third largest element in the array.
+
+    """
     n = len(arr)
     if n < 3 :
         return None , None , None
