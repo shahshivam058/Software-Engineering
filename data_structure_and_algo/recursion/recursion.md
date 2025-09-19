@@ -1,0 +1,9 @@
+Recursion : 
+- it's an elegant and powerful way to solve problems that can be broken down into smaller, self-similar subproblems
+- While any recursive function can technically be rewritten iteratively using loops, recursion often leads to code that is more concise, readable, and easier to understand, 
+
+- Recursion is particularly well-suited for problems that have a naturally recursive structure. It's not about being the only way to solve a problem, but rather the best way to model it conceptually
+- Hierarchical Data Structures: Recursion is ideal for traversing or manipulating data structures like trees and graphs. For instance, finding a specific file in a nested folder structure (which is a tree) is a classic recursive problem. You can write a function that looks in the current folder, and then for each subfolder it finds, it calls itself to search that subfolder.
+- Divide-and-Conquer Algorithms: Many efficient algorithms are based on the principle of "divide and conquer," where a problem is broken into two or more smaller subproblems of the same type until they are simple enough to be solved directly. Algorithms like Quicksort and Mergesort are prime examples that use recursion to partition and sort data.
+- Backtracking and Search Algorithms: When you need to explore all possible solutions to a problem, such as finding a path through a maze or solving a Sudoku puzzle, recursion is a natural fit. The function makes a choice, recursively calls itself to explore the consequences of that choice, and if it hits a dead end, it "backtracks" to the previous decision point and tries a different option.
+- Mathematical Problems: Problems defined by a recursive mathematical formula, such as the Fibonacci sequence or factorial, are often easiest to implement with recursion, as the code directly mirrors the mathematical definition.

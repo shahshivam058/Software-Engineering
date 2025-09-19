@@ -57,3 +57,35 @@ For a column, you would use matrix[i][j].
 
 For a 3x4 array named matrix, matrix[0][0] would be the top-left element, and matrix[2][3] would be the bottom-right element.
 
+
+
+Matrix Diagonal Sum
+Transpose Matrix
+Image Smoother
+Largest Local Values in a Matrix
+Lucky Numbers in a Matrix
+Magic Squares In Grid
+Rotate Image
+Spiral Matrix
+Spiral Matrix II
+Spiral Matrix III
+Spiral Matrix IV
+Set Matrix Zeroes
+Convert 1D Array Into 2D Array
+Shift 2D Grid
+Rotating the Box
+Minimum Operations to Make a Uni-Value Grid
+Largest Submatrix With Rearrangements
+
+
+
+Arrays & Strings: Palindrome Number, Plus One, Roman to Integer, Integer to Roman, Excel Sheet Column Title, Largest Odd Number in String, Greatest Common Divisor of Strings, Multiply Strings, Zigzag Conversion, Integer to English Words, Count Odd Numbers in an Interval Range, Count Total Number of Colored Cells, Sum of Square Numbers.
+
+Matrices: Matrix Diagonal Sum, Transpose Matrix, Rotate Image, Spiral Matrix (I, II, III, IV), Set Matrix Zeroes, Largest Local Values in a Matrix, Magic Squares In Grid, Image Smoother, Convert 1D Array Into 2D Array, Shift 2D Grid.
+
+Linked Lists: Insert Greatest Common Divisors in Linked List.
+
+Math & Bit Manipulation: Power of Four, Happy Number, Ugly Number, Pow(x, n), Find the Punishment Number of an Integer, Check if Number is a Sum of Powers of Three, Minimum Number of One Bit Operations to Make Integers Zero.
+
+Simulation & Logic: Count of Matches in Tournament, Water Bottles, Calculate Money in Leetcode Bank, Walking Robot Simulation, Robot Bounded In Circle, Find the Winner of the Circular Game.
+
