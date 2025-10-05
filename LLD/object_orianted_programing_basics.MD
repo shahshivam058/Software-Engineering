@@ -69,7 +69,7 @@ Normal LLD : Only Design
 
 
 LLD Problem Devided in 5 different Parts 
-- Design Pen   (  Entity Design Problem)
+- Design Pen  (Entity Design Problem)
 - Design Chess (Design Game)
 - Design Book My Show OR Parking Managment System ( Managment System)
 - Design Splitwise (Real Life Application)
@@ -105,7 +105,7 @@ OOP : Object Orianted Programing
 - Entity are core of application 
 - entity are consist of 
     - Property  or attributes 
-    -  Bhaviours or function
+    - Bhaviours or function
 
 - 1 Principal of OOP - Abstraction 
 - 3 Pillers of OOP - Encapsulation , Polymorphisam , Inheritence
@@ -248,7 +248,7 @@ Destructor :
 - an object with no refrance  
 - Object is in heap and refrance is in stack when refrance points to null
 - we cant reach to object 
-- Java as something called garbage collector which frees memory . Runs Automatically in Java 
+- Java as something called garbage collector which frees memory. Runs Automatically in Java 
 - There is a function in java which can schedule a gc 
 - GC Process is expensive 
 - each programing language has gc algo somekind of 
@@ -279,7 +279,7 @@ Inhrtitance :
 - more attribute and more methods for each users 
 - Parent class -> child class
 - Super class - > Sub class 
--  all kind of users 
+- all kind of users 
 - as we go downwards in child classs they have more attributes and more methods and more details 
 - going downwards we are going more spasefic 
 - upwards we are going genralization 
@@ -333,7 +333,7 @@ Polymorphisam , Interface , Abstrect Class :
 - With R1 We can also access s2 , It can use but new features cant be used 
 - R1 -> S1 , R2 -> S2 ,R1 -> S2 ,
 - UpCasting from child to parent object , Older remote new tv 
--Downcasting Object of parent access class of chile 
+- Downcasting Object of parent access class of chile 
 - Since Upcasting we are not writing anyextra thing = Implicit type 
 - Where we have to write child  class : Down Cating 
 - we can force compiler to do down castinh +
@@ -345,7 +345,7 @@ Method Overloading and method overriding :
 - Same method name . Different Type , Different no of args
 - Function take multiple kind of inputs and returns result 
 - we cam go through code in println whcih may take different types of arguments 
-- but retyrn redukt sk
+- but return redukt sk
 - same function different type of argument , Diff no of arguments  Method overloading 
 - Method overload makes thing easier for us 
 - Method Signatue = Method name + Parameters
@@ -355,11 +355,9 @@ Method Overloading and method overriding :
 - we dont want our users to worry about input 
 - also known as compile time polymorphisam 
 - which method to call decided at compile time 
-- 
 
 
 Method OverRiding :
-
 - we have a vehical class has a method : start engine 
 - 2 Types of car : ICE , Electric 
 - Both types of cars have method start engine 

@@ -1,0 +1,233 @@
+- every mordan programing language has hashing 
+- dictonary : an abstrect data type 
+- data structure that can store delete get and update item 
+- each item in hasmap has a key and 
+- we can insert , delete , search item in hashmap 
+- search returns the value associated with key 
+- either you find item associated with key or key error means key doesnot exist 
+- each item will have unique key 
+- when you try to insert different value to same key it will override the item 
+- one way to implement is use balanced bineary tree which gives data in log n time avl tree 
+- we want to reduce the search time to constant o(1)
+- python is the dict data type 
+- d[key] = search 
+- d[key] = value = insert 
+- del d[key] : delete item associated with key 
+- item (key , value ):
+- motivation :
+    - docdist : finding common word in documentation
+    - each language hash hashing hashmap and hashset but with different name 
+    - database : 2 types of database : one that use hashing other that doesnot 
+    - spell checker :looking up in dict exist or not 
+    - before google : hashmap being used for each word all websites that are available 
+    - compilers and interpreter 
+    - in old python there used to be dict stores global and local veriable 
+    - network router 
+    - searching in a string (substring search)
+    - string cornamality
+    - file and dict syncronization 
+    - cryptography 
+
+- simple approch :
+    - a simplest approch for dict will be direct hash table 
+        - a big table in array 
+        - index in array represents the key 
+        - store item in array indexed by key 
+        - we can just put item in index 
+        - we can direct access item using index 
+        - badness :
+            - Keys may not be integers 
+            - possibality of collison - 
+            - gigantic memory consumption 
+            - for each item we need one slow in our array 
+            - if keys are integers :
+                - prehashing :
+                    - maps key to non negative integers 
+                    - in theory keys are finite in discrete (string of bits)
+                    - in python hash(x) is prehash of x 
+                    - hash('\0b') = hash('\0\0c') = 64 
+                    - in theoritical world prehash(x) == prehash(y) if x == y 
+                    - __hash__ : we can modify responsible for hashing no two item can oocupy same memory 
+                    - we dont want prehash function to change the value 
+                    - dont mess __hash__ function
+                    - Solution to Memory Consumpsion :
+                        - reduce the univers u of all key to down to reasonable for hashmap 
+                        - means take all possible key and reduce it down to small set of integers 
+                        - we have gient sets of keys map using hash function to smaller sets like array 
+                        - possible value upto hashtable t size 
+                        - subsets of key which are actually store in array 
+                        - we want m which is size around n # keys in dict 
+                        - the space uses nothing but pigon hole pricipal two key might point out to same index in hash table 
+                        - its garuntee to happend 
+                        - chaining :
+                            -  we can use chaining it might help us to reduce the number of collison 
+                            - idea with chaining is simple 
+                            - more than one key will point to same index in hashtable store them as a list 
+                            - value is nothing but a list stored in array then 
+                            - some slots in array wil be empty 
+                            - wrost case accessing element o(n)
+                            - simple uniform hashing is a unrealastic assumption or false assumption which state why chaining is a good idea 
+                                - each key is equilly liked to be hashed to any slow of table independent of where other keys are hashing 
+                                - expected length of chain for n keys  and m slots =  n / m  = alpha also known as load factor of table - 
+                                - we have to maintain such taht list should not be formed 
+                                - running time = 0(1 + chain )
+                                                = 1 + alpha 
+                                - also cost of computing ahsh function 
+                                - we also pay alpha 
+
+                                - we can use hash function :
+                                    - divison method 
+                                        - h(k) = k % m : bad if m has common factor with k 
+                                        - we will end up using only half of table 
+                                    - multiplication method 
+                                        h(k) = (a * k) mod 2** >> (w - r)
+                                            - a is nothing but integer 
+                                            - where w -4 
+                                            - k is nothing but w bits 
+                                            - we have key k w bits logs 
+                                            - take a  which is random integer  consist of 0 and 's 
+                                            - verious copy of k  we multiplly 
+                                            - it will be twice as compare to normal 
+                                            - take the right word 2 ** w 
+                                            - r bits remove from output 
+                                            - m = 2 ^ r 
+                                    - universal hashing :
+                                        - h(k) = ((ak + b ) mod p )  mod m 
+                                        - p = prime number bigger than all universal 
+                                        - a *k is random 
+                                        - b = o to p - 1 
+                                        - for wrost case keys k1 != key2 k2
+                                        - pr  h(k1) = h(k2) = 1 / m 
+
+
+
+
+- with hashing we can get data in constant time 
+- when working what should be m size of table or size of an array 
+- we dont prefer to m be really big as it will more space consumpsion 
+- how to choose m ?
+    - m = theta(n)
+    - load factor = 1 
+    - start with small value and grow or shrink as needed 
+    - if n > m grow table 
+    - if m < n shrink table 
+    - current size m --> m' grow size to m prime 
+    - make a new table of m' 
+    - build new hash function 
+    - for each item in old table insert in new function use new hash function or we can use rehash
+    - grow with how much m' = 2 * m  or wrost we can do m' = n + 1
+    - if we just increase what is cost of n insertions 
+    - cost of building again is upto n^2 
+    -  2 * m is much better option for building the hash table 
+    - every time it will doubling assuming gp series 
+    - o(n) : which is not constant time opretion 
+    - amotrization :
+        - opretion takes o(n) amotrized if k opretions  take <= k(n) time 
+        - t(n) on avaerage where over all opretions 
+        - table doubling : 
+            - K insert takes 0(k) time 
+            - o(1) amotrized time 
+            - K inserts and deletes order k time delete decrease m we need to shrink table 
+            - deletion only helps us to reduce the memory 
+            - Some people may not prefer reduce table size when m < n
+            - we can fix that  if table become half the size n / 2 then shrink m / 2 
+            - resize requires rehashing 
+            - slow from 2k <--> 2**k + 1
+            - o(n) per op 
+            - if n / 4 then shrink m / 2 then amotrized time o(1)
+            - main aim of table doubling keep alpha means load factor constant 
+            - in list data structure append and pop both are constant time in amotrized analysis even in list when we reach max size it create a new table 
+            - there is lot of practical application 
+            - one is string matching search for a pattern in a string 
+            - given a string s and t does s oocure as a substring of t 
+            - simple algo - do sliding window and compare the string 
+            - compare string in python check char by char which is an o(n) opretion where n = length of string 
+            - t * s  searching for a big string is not good 
+            - get a algo which runs in |s| + |t|
+            - rolling hashes ADT :
+                - Data Structure that may help us 
+                - given a hashvalue r append the char  append a string x  which does add char c to end of x 
+                - skip : delete the first char of s 
+                - assuming it is c 
+                - rabin krap string matching algo :
+                    - add first s chars to string 
+                    - then compute hash 
+                    - then first t char from string t then remove one and add another and compare 
+                    -  check wheather s == t
+
+
+
+- Open Addressing and CryptoGraphy Hashing 
+    - One thing you want to remember hashing open addressing 
+    - Simplest way to implement 
+    - Open Addressing :
+        - Open addressing is another approch deal with collison 
+        - Collison we have to work on chaining 
+        - we dont want to use chaining 
+        - we can implement hashtable 
+        - assume array structure with item each element is nothing but item 
+        - one item per slot so m >= n 
+        - m = number of element >= number of element n 
+        - probing :
+            - Try to see if we were able to insert in hashmap and if we fail compute slightly diff hashing itrative process do same untill we found the same , 
+            - hash function diff from standeard hash function  spacifies order of probing  for a key for insert search delete 
+            - hash function h gonna take univers of keys and also take  a trial count 
+            - if lucky then first trial else n 
+            - takes key as argument and trial count 
+            - h = u * trial count 
+            - h ( k , 1) which is an arbitary k , every time count is being increasing untill found correct 
+            - this vector is permutation of 0 1 to m - 1
+            - we dont want particular slots to gonna be unused 
+            - open table and start inserting the item to that 
+            - insert 568  compute hashing and find out index = 1  586 stored in index 1 
+            - hash table emoty so all first trials are sucessful 
+            - insrrt 496 the index we got is 4 there is already element at 4 , first insert fail 
+            - do with trial count 2 
+            - try till m -1 which is array size  and found the location that is empty 
+            - we gone through 3 trial we to found correct location 
+            - how would search work here : 
+            - None empty slow flag 
+            - insert (k , v ) keep probing untill empty slot found when found insert item 
+            - search is different key k and probing untill slots encountred are occupied by key != k do untill we eidnt found the value 
+            - keep probing untill encounter k or find an empty slot 
+            - delete - do untill find the correct slot and delete 
+            - delete 586 from the table what i end up doing replace value with None 
+            - when we search for another value when find empty slot failed in search and return key value paid 
+            - means key not in table or colud not found it 
+            - fail incorrectly we dont want to fail incorrectly 
+            - we gonna have a flag delete me flag 
+            - replace deleted item with diff flag named delete me 
+            - which is diff from none 
+            - we have to modify it slighly 
+            - Insert treat delete me as none but search keeps going 
+            - whole point of deleyte we can insert key  there 
+            - we have an extra requirment on hash funtion hashfunction with trial count 
+            - probing stretegy :
+
+                - Linear Probing h(k , i) = (h(k) + i) mod m SATISFIES PERMUTATION 
+                - Clustering is wrong this probing stretegy 
+                - Oocupied groups 
+                -  which keep growing cluster will keep growing 
+                - In linear probing once start with grouping cluster will be created 
+                - we might loose our constant time look up i
+                - if we have cluster of log n then our access will not be o(1)
+                - we can use double hashing = h(k , i) = (h1(k) + i * h2(k)) mod m 
+                - if h2(k) is prime  = > permutations 
+                - m = 2 ^ r h2(k) for all k is odd 
+                - hash function which produce odd values 
+                - good way of open addressing works 
+                - uniform hashing assumpstion :
+                    - Not same as simple uniform hashing 
+                    - each key equilly likely to have any one of m! permutation as prob seq 
+                    - very hard to get in practice 
+                    - if load factor m / n cost of opretion ofinsert  < = 1 ( 1 - load factor )
+                    - load factor grows number probs increase 
+                    - load factor needs to be small 
+                    - open address easy to implement load factor remaining 0.5 resize the table 
+                    - delete is not constant opretion delay associated with load 
+                    - p = m - n // m = 1 - load factor 
+                    - cryptographic hashes :  
+
+
+        
+

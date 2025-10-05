@@ -286,17 +286,11 @@ This design is highly scalable. The ReportGenerator is now closed to modificatio
 Liskov Sabsitution principal : 
 
 - the LSP states that if you have a base class (or parent type) and a subclass (or subtype), you should be able to use an object of the subclass wherever an object of the base class is expected, without the program's correctness being affected.
-
 - Object of Any child class Should be sabsitutable in parent type without requiring any code change 
-
 - We should not need to accomodate or give any spacial preferance to child object for accomodating to parent type 
-
 - Code is more predictable: You can trust that a subclass will behave like its parent, honoring the parent's contract.
-
 - New features can be added with confidence: You can introduce new subtypes without worrying about breaking existing code that uses the base type.
-
 - Polymorphism works as intended: The principle is a formal definition of what proper subtype polymorphism should be.
-
 - LSP Says Dont Over write things that dont go togather 
 
 Rule 1: The "Is-A" Test is Not Enough
